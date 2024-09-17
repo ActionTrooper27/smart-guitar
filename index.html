@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<script>
+    // Use querySelector to select the element by class name
+    document.querySelector('.image-wrapper').addEventListener('click', handleClick);
+
+    function alignFretboardLeft() {
+        // Hardcoded string selection
+        // Iterating over strings
+        for (let i = 0; i < 2; i++)
+        {
+            let decrement_counter = 0;
+            for (let j = 0; j < {{ fret_count }} + 1; j++) {
+            const elements = document.querySelectorAll('.string-' + i + '.fret-' + j);
+
+            elements.forEach(element => {
+                console.log(`Fret Index: ${j}`);
+                const currentLeftValue = window.getComputedStyle(element).left;
+                const numericLeftValue = parseInt(currentLeftValue, 10);
+                console.log(`Current Left Value: ${numericLeftValue}`)
+                const newLeftValue = (numericLeftValue - 0.5 - (decrement_counter * 0.5));
+                console.log(`New Left Value: ${newLeftValue}`)
+                element.style.left = `${newLeftValue}px`;
+            })
+
+            decrement_counter++;
+            }
+            decrement_counter = 0;
+        }
+    }
+
+    function alignFretboardRight() {
+        // Hardcoded string selection
+        // Iterating over strings
+        for (let i = 4; i < 6; i++)
+        {
+            let decrement_counter = 0;
+            for (let j = 0; j < {{ fret_count }} + 1; j++) {
+            const elements = document.querySelectorAll('.string-' + i + '.fret-' + j);
+
+            elements.forEach(element => {
+                console.log(`Fret Index: ${j}`);
+                const currentLeftValue = window.getComputedStyle(element).left;
+                const numericLeftValue = parseInt(currentLeftValue, 10);
+                console.log(`Current Left Value: ${numericLeftValue}`)
+                const newLeftValue = (numericLeftValue + 0.5 + (decrement_counter * 0.5));
+                console.log(`New Left Value: ${newLeftValue}`)
+                element.style.left = `${newLeftValue}px`;
+            })
+
+            decrement_counter++;
+            }
+            decrement_counter = 0;
+        }
+    }
+</script>
+
+    <!-- 1 = low E string, 6 = high E string (backwards from Guitar convention) -->
+    <div class="image-wrapper">
+        <img src="/static/images/fender-stratocaster.jpg" alt="Electric Guitar">
+
+        {% for i in range(string_count) %}
+            {% for j in range(fret_count + 1) %}
+                {% if '#' in fretboard[i][j] %}
+                    <span class="note fret-{{ j }} string-{{ i }}">{{ fretboard[i][j][0] }}</span>
+                    <span class="sharp_or_flat fret-{{ j }} string-{{ i }}">{{ fretboard[i][j][1] }}</span>
+                {% elif 'b' in fretboard[i][j] %}
+                    <span class="note fret-{{ j }} string-{{ i }}">{{ fretboard[i][j][0] }}</span>
+                    <span class="sharp_or_flat fret-{{ j }} string-{{ i }}">{{ fretboard[i][j][1] }}</span>
+                {% else %}
+                    <span class="note fret-{{ j }} string-{{ i }}">{{ fretboard[i][j] }}</span>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+            <!-- Execute/Call JavaScript Functions -->
+            <script>
+                alignFretboardLeft()
+                alignFretboardRight()
+            </script>
+    </div>
+<!-- ORIGINAL JAVASCRIPT PLACEMENT -->
+{% endblock %}

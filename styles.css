@@ -1,0 +1,171 @@
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 780px; /* Set a max-width for your image */
+    margin: auto; /* Center the image horizontally */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto; /* Make sure the image scales with the container */
+    display: block;
+
+    /* Original placement */
+    transform: rotate(-90deg) scale(3);
+    margin-top: 130%;
+}
+
+.note {
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.sharp_or_flat {
+    position: absolute;
+    font-size: 14px;
+    /* Move sharps (#) or flats (b) to the right */
+    margin-left: 11.5px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+/* Strings range 0-5, convention: 1-6 */
+/* 1 = low E string, 6 = high E string (different from Guitar convention) */
+.string-0 {
+    left: 338px;
+}
+
+.string-1 {
+    left: 356px;
+}
+
+.string-2 {
+    left: 374px;
+}
+
+.string-3 {
+    left: 392px;
+}
+
+.string-4 {
+    left: 410px;
+}
+
+.string-5 {
+    left: 428px;
+}
+
+/* Make fret 0 (open string) invisible on fretboard */
+.fret-0 {
+    visibility: hidden;
+}
+
+/* x = left, y = top */
+.fret-1 {
+    /* left: is temporary because this will vary by string */
+    /* left: 338px; */
+    top: -572.9833374023438px;
+}
+
+.fret-2 {
+    /* Increment left: -2 for every other subsequent fret */
+    /* left: 336px; */
+    top: -485.98333740234375px;
+}
+
+.fret-3 {
+    /* left: 336px; */
+    top: -405.98333740234375px;
+}
+
+.fret-4 {
+    /* left: 334px; */
+    top: -329.98333740234375px;
+}
+
+.fret-5 {
+    /* left: 334px; */
+    top: -256.98333740234375px;
+}
+
+.fret-6 {
+    /* left: 332px; */
+    top: -190.98333740234375px;
+}
+
+.fret-7 {
+    /* left: 332px; */
+    top: -128.98333740234375px;
+}
+
+.fret-8 {
+    /* left: 330px; */
+    top: -68.98333740234375px;
+}
+
+.fret-9 {
+    /* left: 330px; */
+    top: -12.98333740234375px;
+}
+
+.fret-10 {
+    /* left: 328px; */
+    top: 37.98333740234375px;
+}
+
+.fret-11 {
+    /* left: 328px; */
+    top: 87.98333740234375px;
+}
+
+.fret-12 {
+    /* left: 326px; */
+    top: 135.98333740234375px;
+}
+
+.fret-13 {
+    /* left: 326px; */
+    top: 180.98333740234375px;
+}
+
+.fret-14 {
+    /* left: 324px; */
+    top: 222.98333740234375px;
+}
+
+.fret-15 {
+    /* left: 324px; */
+    top: 261.98333740234375px;
+}
+
+.fret-16 {
+    /* left: 322px; */
+    top: 298.98333740234375px;
+}
+
+.fret-17 {
+    /* left: 322px; */
+    top: 335.98333740234375px;
+}
+
+.fret-18 {
+    /* left: 320px; */
+    top: 367.98333740234375px;
+}
+
+.fret-19 {
+    /* left: 320px; */
+    top: 397.98333740234375px;
+}
+
+.fret-20 {
+    /* left: 318px; */
+    top: 427.98333740234375px;
+}
+
+.fret-21 {
+    /* left: 318px; */
+    top: 455.98333740234375px;
+}

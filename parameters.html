@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Set Parameters
+{% endblock %}
+
+{% block main %}
+    <h3>Set Parameters</h3>
+    <form action="/parameters" method="post">
+          <div class="dropdown">
+            <div class="mb-3"></div>
+            <select name="dropdown_strings" class="form-control" id="dropdownMenuButton">
+              <option value="6">6 Strings (Standard Electric, Standard Acoustic)</option>
+              <option value="4" disabled="disabled">4 Strings (Standard Electric Bass)</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <select name="dropdown_frets" class="form-control" id="dropdownMenuButton">
+              <option value="20" disabled="disabled">20 Frets (Standard Acoustic)</option>
+              <option value="21">21 Frets (Standard Electric, Standard Electric Bass)</option>
+              <option value="24" disabled="disabled">24 Frets (Electric)</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <select name="sharps_or_flats" class="form-control" id="dropdownMenuButton">
+              <option value="sharps">Use Sharps (#)</option>
+              <option value="flats">Use Flats (b)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+{% endblock %}

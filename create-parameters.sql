@@ -1,0 +1,1 @@
+CREATE TABLE parameters (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, string_count INTEGER, fret_count INTEGER, sharps_or_flats TEXT, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP);

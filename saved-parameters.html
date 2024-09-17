@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Saved Parameters
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">String Count</th>
+        <th scope="col">Fret Count</th>
+        <th scope="col">Using Sharps or Flats</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in range(length) %}
+        <tr>
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{ saved_parameters[i]['string_count'] }}</td>
+            <td>{{ saved_parameters[i]['fret_count'] }}</td>
+            <td>{{ saved_parameters[i]['sharps_or_flats'] }}</td>
+            <td>{{ saved_parameters[i]['timestamp'] }}</td>
+            <td>
+              <form method="POST" action="/saved-parameters">
+                  <input type="hidden" name="action" value="set_current">
+                  <input type="hidden" name="id" value="{{ saved_parameters[i]['id'] }}">
+                  <button type="submit" class="btn btn-primary">Set as Current</button>
+              </form>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
